@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to HRMS</h1>
+    <p class="lead text-center">Manage your employees and track attendance effortlessly.</p>
+
+    <!-- Quick Stats Section -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total Employees</h5>
+                    <p class="display-4">{{ employees|length }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Departments</h5>
+                    <p class="display-4">{{ departments|length }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Attendance Records</h5>
+                    <p class="display-4">{{ attendance_records|length }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="row text-center mt-5">
+        <div class="col-md-6 mb-4">
+            <a href="/employee/add" class="btn btn-primary btn-lg w-100">Add New Employee</a>
+        </div>
+        <div class="col-md-6 mb-4">
+            <a href="/employees" class="btn btn-secondary btn-lg w-100">View Employee Directory</a>
+        </div>
+    </div>
+
+    <!-- Reporting Chart (Optional) -->
+    <div class="text-center mt-5">
+        <h3>Department Overview</h3>
+        <canvas id="departmentChart" width="400" height="200"></canvas>
+    </div>
+</div>
+{% endblock %}
